@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://rimy88qbb0gm"]
+
+[ext_resource type="Script" uid="uid://cpew7myoe0jd5" path="res://Scenes/Dialog/control.gd" id="1_lh1mo"]
+[ext_resource type="Theme" uid="uid://c0diravipv5f5" path="res://Themes/SmallTitle.tres" id="2_lh1mo"]
+
+[node name="Dialog" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_lh1mo")
+dialogue_file = "res://Dialogs/TestDialog.txt"
+
+[node name="Dialog" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 746.0
+offset_right = 1660.0
+offset_bottom = 1085.0
+theme = ExtResource("2_lh1mo")
+text = "dwdwdw"
+
+[node name="CharacterName" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 648.0
+offset_right = 432.0
+offset_bottom = 720.0
+theme = ExtResource("2_lh1mo")
+text = "dwd"
+
+[node name="Timer" type="Timer" parent="Control"]
+wait_time = 3.0
+one_shot = true

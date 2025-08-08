@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3m1jbvisrxh0"]
+
+[ext_resource type="Texture2D" uid="uid://cvph1ysx23mtx" path="res://assets/Pictures/backgrouds/school_gate_spring.png" id="1_81rif"]
+[ext_resource type="Script" uid="uid://bcsvgoj4o51kw" path="res://Scenes/Start/start_page.gd" id="1_rux2i"]
+[ext_resource type="Theme" uid="uid://gxnt5yx6j0e4" path="res://Themes/BigTitle.tres" id="2_8fkcw"]
+[ext_resource type="Theme" uid="uid://c0diravipv5f5" path="res://Themes/SmallTitle.tres" id="3_81rif"]
+
+[node name="StartPage" type="Node2D"]
+script = ExtResource("1_rux2i")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1923.0
+offset_bottom = 1080.0
+texture = ExtResource("1_81rif")
+
+[node name="BigTitle" type="RichTextLabel" parent="."]
+offset_right = 1131.0
+offset_bottom = 347.0
+theme = ExtResource("2_8fkcw")
+text = "Ratio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VersionShow" type="RichTextLabel" parent="."]
+offset_left = 1779.0
+offset_top = 1036.0
+offset_right = 1917.0
+offset_bottom = 1080.0
+text = "Ver 0.01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartGameButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 310.0
+offset_right = 1924.0
+offset_bottom = 379.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("3_81rif")
+text = "  开始游戏"
+alignment = 0
+
+[node name="ContinueButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1576.0
+offset_top = 424.0
+offset_right = 1925.0
+offset_bottom = 493.0
+theme = ExtResource("3_81rif")
+text = "  继续游戏"
+alignment = 0
+
+[node name="LoadButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1576.0
+offset_top = 536.0
+offset_right = 1924.0
+offset_bottom = 605.0
+theme = ExtResource("3_81rif")
+text = "  加载游戏"
+alignment = 0
+
+[node name="OptionButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1578.0
+offset_top = 651.0
+offset_right = 1925.0
+offset_bottom = 720.0
+theme = ExtResource("3_81rif")
+text = "  选项设定"
+alignment = 0
+
+[node name="MakerButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 773.0
+offset_right = 1924.0
+offset_bottom = 842.0
+theme = ExtResource("3_81rif")
+text = "  制作人员"
+alignment = 0
+
+[node name="ExitButton" type="Button" parent="Buttons"]
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 895.0
+offset_right = 1923.0
+offset_bottom = 964.0
+theme = ExtResource("3_81rif")
+text = "  退出"
+alignment = 0
+
+[connection signal="pressed" from="Buttons/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="Buttons/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="Buttons/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cse7bcci50ckp"]
+
+[ext_resource type="Texture2D" uid="uid://dmhl3k48duslw" path="res://assets/Pictures/elements/back.png" id="1_gx8qj"]
+
+[node name="SavesTable" type="Control"]
+visible = false
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.767425, 0.674668, 1, 1)
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1488.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -103.0
+offset_top = 37.0
+offset_right = -35.0
+offset_bottom = 110.0
+grow_horizontal = 0
+texture_normal = ExtResource("1_gx8qj")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

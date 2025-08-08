@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw2ny2ax1nufb"]
+
+[ext_resource type="Script" uid="uid://pto4v6g18utt" path="res://Scenes/GlobalFunction/load_screen.gd" id="1_ch07o"]
+[ext_resource type="Texture2D" uid="uid://begxea65yik7o" path="res://assets/Pictures/backgrouds/banner2.png" id="2_pw8ex"]
+
+[node name="LoadScreen" type="Node2D"]
+script = ExtResource("1_ch07o")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_pw8ex")
+
+[node name="StatusLabel" type="Label" parent="."]
+offset_left = 536.0
+offset_top = 848.0
+offset_right = 1400.0
+offset_bottom = 960.0
+theme_override_font_sizes/font_size = 46
+text = "加载中..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 208.0
+offset_top = 960.0
+offset_right = 1712.0
+offset_bottom = 1032.0

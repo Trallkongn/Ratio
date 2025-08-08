@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://t8kn7yupl1m5"]
+
+[ext_resource type="Theme" uid="uid://c0diravipv5f5" path="res://Themes/SmallTitle.tres" id="2_78v38"]
+[ext_resource type="Texture2D" uid="uid://dn6h7urko2use" path="res://assets/Pictures/table.png" id="10_1wt3g"]
+
+[node name="Dialog" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1919.0
+offset_bottom = 1085.0
+
+[node name="Dialog" type="RichTextLabel" parent="Control"]
+top_level = true
+layout_mode = 0
+offset_left = 262.0
+offset_top = 792.0
+offset_right = 1660.0
+offset_bottom = 1033.0
+theme = ExtResource("2_78v38")
+text = "dwdwdw"
+
+[node name="CharacterName" type="RichTextLabel" parent="Control"]
+top_level = true
+layout_mode = 0
+offset_left = 262.0
+offset_top = 720.0
+offset_right = 432.0
+offset_bottom = 792.0
+theme = ExtResource("2_78v38")
+text = "dwd"
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 144.0
+offset_right = 272.0
+offset_bottom = 224.0
+color = Color(0.839216, 0.556863, 1, 0.67451)
+
+[node name="Label" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 144.0
+offset_right = 272.0
+offset_bottom = 224.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 42
+text = "Chapter x-x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Table" type="Sprite2D" parent="Control"]
+position = Vector2(959, 544)
+texture = ExtResource("10_1wt3g")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+top_level = true
+offset_right = 1919.0
+offset_bottom = 1016.0
