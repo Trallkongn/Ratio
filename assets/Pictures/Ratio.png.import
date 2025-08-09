@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be6lq45gpilgu"
-path="res://.godot/imported/arrow_up3.png-2c7fb8acd06c6b831fd7d41554b3074e.ctex"
+uid="uid://b0cvlrlk7y0bo"
+path="res://.godot/imported/Ratio.png-47abd9957a0485053cbdfe429a79eefc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pictures/arrow_up3.png"
-dest_files=["res://.godot/imported/arrow_up3.png-2c7fb8acd06c6b831fd7d41554b3074e.ctex"]
+source_file="res://assets/Pictures/Ratio.png"
+dest_files=["res://.godot/imported/Ratio.png-47abd9957a0485053cbdfe429a79eefc.ctex"]
 
 [params]
 

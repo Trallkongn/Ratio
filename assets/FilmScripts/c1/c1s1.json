@@ -3,38 +3,59 @@
 	[
 		{
 			"id":1,
-			"character":"天雄",
+			"character":"天空",
 			"emotion":"normal",
 			"bg":"airport",
 			"text":"我正要乘坐 H726 航班，前往这个地球上最繁华的地区—— 裕东"
 		},
 		{
 			"id":2,
-			"character":"天雄",
+			"character":"天空",
 			"emotion":"normal",
 			"bg":"airport",
 			"text":"至于为什么我要花那么多钱去一个物价高昂的地方"
 		},
 		{
 			"id":3,
-			"character":"天雄",
+			"character":"天空",
 			"emotion":"normal",
 			"bg":"airport",
 			"text":"其实我是为了找一个人"
 		},
 		{
 			"id":4,
-			"character":"天雄",
+			"character":"天空",
 			"emotion":"normal",
 			"bg":"airport",
 			"text":"那就是我的青梅竹马"
 		},
 		{
 			"id":5,
-			"character":"天雄",
+			"character":"天空",
 			"emotion":"normal",
 			"bg":"airport",
-			"text":"我们虽然在一起长大，但是却并没有太深刻的感情，之后，她去了裕东工作，我则是被安排到了别的地方工作，这次的寻找便是上级安排，我不想追问过多，因为我还有自己要做的事情"
+			"text":"虽然在一起长大，但是我对她并没有特别的感情"
+		},
+		{
+			"id":6,
+			"character":"天空",
+			"emotion":"normal",
+			"bg":"airport",
+			"text":"之后，她去了裕东工作，我则是被安排到了别的地方工作"
+		},
+		{
+			"id":7,
+			"character":"天空",
+			"emotion":"normal",
+			"bg":"airport",
+			"text":"这次的寻找便是上级安排"
+		},
+		{
+			"id":8,
+			"character":"天空",
+			"emotion":"normal",
+			"bg":"airport",
+			"text":"我不想追问过多，因为我还有自己要做的事情"
 		}
 	]
 ]

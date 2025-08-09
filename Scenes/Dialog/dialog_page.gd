@@ -11,8 +11,13 @@ extends Node2D
 @onready var m_Control = $Dialog/Control
 
 @onready var option_button = $BottomMenu/buttons/set_button
+@onready var load_button = $BottomMenu/buttons/load_button
+@onready var save_button = $BottomMenu/buttons/save_button
 
 const OPTION_PAGE = preload("res://Scenes/UserPlayUI/SettingPage.tscn")
+const LOAD_TABLE = preload("res://Scenes/UserPlayUI/load_table.tscn")
+const SAVE_TABLE = preload("res://Scenes/UserPlayUI/save_table.tscn")
+
 
 var next_scene : String
 var json_data : Array
@@ -40,6 +45,9 @@ func _ready() -> void:
 		
 	action.connect("pressed", action_pressed)
 	option_button.connect("pressed",option_button_pressed)
+	load_button.connect("pressed", load_button_pressed)
+	save_button.connect("pressed", save_button_pressed)
+	
 
 func _process(_delta: float) -> void:
 	# UI 隐藏按钮检测
@@ -101,5 +109,15 @@ func action_pressed() -> void :
 func option_button_pressed() -> void:
 	var option_page = OPTION_PAGE.instantiate()
 	Transition.change_scene_child(option_page,self)
+	
+func load_button_pressed() -> void:
+	var load_table = LOAD_TABLE.instantiate()
+	Transition.change_scene_child(load_table,self)
+	
+func save_button_pressed() -> void:
+	var save_table = SAVE_TABLE.instantiate()
+	Transition.change_scene_child(save_table,self)
+	
+	
 	
 	

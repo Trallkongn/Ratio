@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bidpr43nurm7v"]
+
+[ext_resource type="VideoStream" uid="uid://do0pjc8av5dnc" path="res://assets/Media/opening.mp4" id="1_kr04i"]
+
+[node name="Opening" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("1_kr04i")
+autoplay = true

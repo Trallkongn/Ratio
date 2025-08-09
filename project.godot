@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Ratio"
+config/version="0.0.2"
 run/main_scene="uid://caixua1qro5hc"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://b0cvlrlk7y0bo"
 
 [autoload]
 
@@ -25,6 +26,7 @@ Transition="*res://Scenes/GlobalFunction/SceneTransition.tscn"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
+window/stretch/mode="viewport"
 
 [dotnet]
 
