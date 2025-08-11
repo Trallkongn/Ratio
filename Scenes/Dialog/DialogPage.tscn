@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://7pd1nv86jpho"]
+[gd_scene load_steps=7 format=3 uid="uid://7pd1nv86jpho"]
 
 [ext_resource type="Texture2D" uid="uid://cgurhky8xc16i" path="res://assets/Pictures/backgrouds/p1.jpg" id="1_3i283"]
 [ext_resource type="Script" uid="uid://d04kk62qu0rfb" path="res://Scenes/Dialog/dialog_page.gd" id="1_33j1h"]
 [ext_resource type="PackedScene" uid="uid://t8kn7yupl1m5" path="res://Scenes/Dialog/ClickDialog.tscn" id="2_7pvov"]
+[ext_resource type="Texture2D" uid="uid://ckpcd7e7bx6gx" path="res://assets/Pictures/characters/天空/airport/normal/天空.png" id="3_2lo5e"]
 [ext_resource type="PackedScene" uid="uid://de0pl4o0ok7gi" path="res://Scenes/UserPlayUI/bottom_menu.tscn" id="4_nmmgc"]
+[ext_resource type="Script" uid="uid://chd8chvg5rsfa" path="res://Scenes/Dialog/character.gd" id="4_u2li7"]
 
 [node name="DialogPage" type="Node2D"]
 script = ExtResource("1_33j1h")
@@ -12,6 +14,12 @@ script = ExtResource("1_33j1h")
 offset_right = 1919.0
 offset_bottom = 1084.0
 texture = ExtResource("1_3i283")
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(952, 632)
+scale = Vector2(1.35425, 1.18714)
+texture = ExtResource("3_2lo5e")
+script = ExtResource("4_u2li7")
 
 [node name="Dialog" parent="." instance=ExtResource("2_7pvov")]
 

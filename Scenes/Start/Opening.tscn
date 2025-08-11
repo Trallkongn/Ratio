@@ -9,3 +9,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 stream = ExtResource("1_kr04i")
 autoplay = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0

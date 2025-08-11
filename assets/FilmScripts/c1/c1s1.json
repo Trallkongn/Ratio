@@ -1,5 +1,8 @@
 [
-	"Chapter1-1",
+	{
+		"sequence" : "Chapter1-1",
+		"next_scene" : "c1s2"
+	},
 	[
 		{
 			"id":1,
