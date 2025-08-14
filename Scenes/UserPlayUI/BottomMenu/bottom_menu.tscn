@@ -89,4 +89,7 @@ autowrap_mode = 3
 [connection signal="pressed" from="buttons/save_button" to="buttons" method="_on_save_button_pressed"]
 [connection signal="pressed" from="buttons/load_button" to="buttons" method="_on_load_button_pressed"]
 [connection signal="pressed" from="buttons/title_button" to="buttons" method="_on_title_button_pressed"]
+[connection signal="pressed" from="buttons/qsave_button" to="buttons" method="_on_qsave_button_pressed"]
+[connection signal="pressed" from="buttons/qload_button" to="buttons" method="_on_qload_button_pressed"]
+[connection signal="pressed" from="buttons/set_button" to="buttons" method="_on_set_button_pressed"]
 [connection signal="pressed" from="buttons/x_button" to="buttons" method="_on_x_button_pressed"]

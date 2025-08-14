@@ -27,13 +27,13 @@ func load_game() -> void :
 	save_data = file.get_var(true)
 	file.close()
 
-# TODO: impl
+# 用来检测某一个插槽是否有实际存档
 func has_save(slot_index : int) -> bool :
 	if save_data && save_data.has(slot_index):
 		return true
 	return false
 	
-# 选择插槽后进入对应的场景
+# 选择插槽后进入对应的场景 或者 通过快速加载进入场景
 func change_scenen(save_id : String) :
 	var arr = save_id.split("-")
 	if arr.size() == 3:

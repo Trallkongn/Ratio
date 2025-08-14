@@ -169,7 +169,8 @@ func get_background(background_path : String) :
 		cache[hash_value] = load(background_path)
 	return cache[hash_value]
 	
-# 通过全局分组调用的游戏保存函数
+# 通过 全局分组 调用的游戏保存函数
+# 你可以在此参考一个插槽中所包含的数据
 func game_save(slot_id : int) :
 	print("通过小组调用执行了 game_save 函数")
 	
@@ -196,3 +197,6 @@ func game_save(slot_id : int) :
 	Save["DialogText"] = dialog_text
 	
 	SaveSystem.save_data[slot_id] = Save
+	
+	# 这里自动保存一次游戏
+	SaveSystem.save_game()

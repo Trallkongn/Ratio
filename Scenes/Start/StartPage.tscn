@@ -99,6 +99,7 @@ text = "  退出"
 alignment = 0
 
 [connection signal="pressed" from="Buttons/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="Buttons/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="Buttons/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="Buttons/MakerButton" to="." method="_on_maker_button_pressed"]
