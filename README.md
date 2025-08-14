@@ -1,3 +1,40 @@
-# Godot-VCSExportPlatform
+# 【Godot】Ratio 视觉小说引擎
 
-A super simple export plugin for godot that allows for source code to be coppied to another directory and optionally compressed. Usefull for making automatic source code exports. Requires the NovaTools plugin as a dependency and some sort of VCS plugin to use in the first place.
+<img width="1000" height="1000" alt="Ratio" src="https://github.com/user-attachments/assets/82273f0c-1898-40dd-a390-fb8e8285f064" />
+
+# 引擎介绍
+
+暂时没有什么特色，首要目标为实现一个以市场上的普遍视觉小说为模板的游戏引擎
+
+之前版本更新的功能：
+
+  基本操作界面
+
+  全局过渡动画系统
+
+  开场动画
+
+  对话系统
+  
+  剧本系统
+
+  滤镜系统
+
+目前最新版本为 Ver 0.04 版本，更新计划为一周一更
+
+更新日志：
+
+​	增加了存档系统
+
+​	增加了角色系统（存在bug）
+
+​	增加了缓存系统以及预加载系统，方便开发使用
+
+  加入了 dialog manager 3 插件作为辅助
+
+​	完善了其它功能
+
+# 如何使用？
+
+导入Godot游戏引擎即可使用
+如果没有 ffmpeg 插件，可能会遇到无法导入 mp4 等文件的问题
