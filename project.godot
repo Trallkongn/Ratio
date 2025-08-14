@@ -13,13 +13,21 @@ config_version=5
 config/name="Ratio"
 config/version="0.0.2"
 run/main_scene="uid://caixua1qro5hc"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="uid://b0cvlrlk7y0bo"
 
 [autoload]
 
 Global="*res://global.gd"
 Transition="*res://Scenes/GlobalFunction/SceneTransition.tscn"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SaveSystem="*res://Core/SaveSystem.gd"
+PreloadSystem="*res://Core/PreloadSystem.gd"
+
+[dialogue_manager]
+
+runtime/balloon_path="uid://p6tb787yyq3q"
+runtime/advanced/uses_dotnet=true
 
 [display]
 
@@ -32,9 +40,21 @@ window/stretch/mode="viewport"
 
 project/assembly_name="InfiniteHistory"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
 "res://Scenes/": "orange",
 "res://Themes/": "yellow"
 }
+
+[global_group]
+
+Persist="用于保存游戏"
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://assets/DMFiles/dialogues/c1.dialogue")

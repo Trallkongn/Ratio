@@ -25,7 +25,10 @@ func _process(delta: float) -> void:
 		m_ProgressBar.value = 100.0
 		await get_tree().create_timer(2.0).timeout
 		var packed_next_scene = ResourceLoader.load_threaded_get(next_scene)
-		Global.target_json_file = "res://assets/FilmScripts/c1/c1s1.json"
 		Transition.change_scene_packed(packed_next_scene)
+		
+		# 等待动画
+		await get_tree().create_timer(1.0).timeout
+		queue_free()
 	
 	

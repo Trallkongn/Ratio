@@ -19,17 +19,11 @@ extends Node2D
 @onready var c_dialog = $Dialog/Control/Dialog			# 对话文本节点
 @onready var c_label = $Dialog/Control/Label			# 用于显示当前序列的标签
 @onready var m_Control = $Dialog/Control				# 获取 Control 父级节点，用于UI的隐藏
-@onready var m_Character = $Character					# 获取 Character Sprite2D
+@onready var m_Character = $Character2D
 
 # 获取底部一排按钮的节点
 @onready var option_button = $BottomMenu/buttons/set_button # 设置
-@onready var load_button = $BottomMenu/buttons/load_button  # 加载
 @onready var save_button = $BottomMenu/buttons/save_button  # 保存
-
-# 预加载底部按钮对应的场景
-const OPTION_PAGE = preload("res://Scenes/UserPlayUI/SettingPage.tscn")
-const LOAD_TABLE = preload("res://Scenes/UserPlayUI/load_table.tscn")
-const SAVE_TABLE = preload("res://Scenes/UserPlayUI/save_table.tscn")
 
 # 全局变量
 var json_data : Array			# 用于保存获取到的 JSON 数据
@@ -39,10 +33,15 @@ var scene_info : Array			# 用于获取对话信息
 var character_name : String		# 用于获取角色名称
 var character_emotion : String  # 用于获取角色表情
 var place : String				# 用于获取角色位置
+var dialog_text : String		# 用于获取角色对话
 var current_dialog = 0			# 用于表示当前对话的索引，与JSON里的 id 不同
+
+# 缓存
+var cache := {}
 
 func _ready() -> void:
 	# 设置当前场景要使用的JSON文件
+	current_dialog = Global.next_scene_current_dialog
 	target_json_file = Global.target_json_file
 	
 	# 读取JSON和获取数据，并初始化UI
@@ -55,12 +54,16 @@ func _ready() -> void:
 				# 读取数据成功，初始化UI
 				character_emotion = scene_info[current_dialog]["emotion"]
 				place = scene_info[current_dialog]["bg"]
-				background.texture = load(get_background_path(place))
+				background.texture = get_background(Global.get_background_path(place))
 				character_name = scene_info[current_dialog]["character"]
 				c_name.text = character_name
-				c_dialog.text = scene_info[current_dialog]["text"]
+				dialog_text = scene_info[current_dialog]["text"]
+				c_dialog.text = dialog_text
 				c_label.text = scene_sequence
-				m_Character.texture = load(get_character_path(character_name,place,character_emotion))
+				
+				m_Character.current_background = place
+				m_Character.current_character = character_name
+				m_Character.change_emotion(character_emotion)
 			else :
 				print("未能成功加载数据 ")
 	else :
@@ -68,11 +71,7 @@ func _ready() -> void:
 		
 	# 连接按钮点击信号
 	action.connect("pressed", action_pressed)
-	option_button.connect("pressed",option_button_pressed)
-	load_button.connect("pressed", load_button_pressed)
-	save_button.connect("pressed", save_button_pressed)
 	
-
 func _process(_delta: float) -> void:
 	# UI 隐藏按钮检测
 	if Global.is_ui_hidden :
@@ -111,34 +110,21 @@ func load_data() -> bool :
 		print("数据错误")
 		return false
 
-# 工具函数，用于获取背景图片的路径
-func get_background_path(bg_name : String) -> String :
-	if bg_name:
-		var path : String = "res://assets/Pictures/backgrouds/" + bg_name + ".png"
-		return path
-	else :
-		print("没有获取到 background name")
-		return ""
-		
-# 工具函数，根据角色的名称、位置、表情获取图片位置
-func get_character_path(ch_name : String, ch_place : String, ch_emotion : String) -> String :
-	if ch_name && ch_place && ch_emotion :
-		return ("res://assets/Pictures/characters/" + ch_name + "/" + ch_place + "/" + ch_emotion + "/" + ch_name + ".png")
-	else :
-		print("character信息不完整")
-		return ""
-
 # 点击屏幕的响应，更新UI
 func action_pressed() -> void :
 	if current_dialog < scene_info.size()-1:
 		current_dialog += 1
 		character_emotion = scene_info[current_dialog]["emotion"]
-		background.texture = load(get_background_path(scene_info[current_dialog]["bg"]))
+		background.texture = get_background(Global.get_background_path(place))
 		character_name = scene_info[current_dialog]["character"]
 		c_name.text = character_name
-		c_dialog.text = scene_info[current_dialog]["text"]
-		m_Character.texture = load(get_character_path(character_name,place,character_emotion))
+		dialog_text = scene_info[current_dialog]["text"]
+		c_dialog.text = dialog_text
 		
+		m_Character.current_background = place
+		m_Character.current_character = character_name
+		m_Character.change_emotion(character_emotion)
+				
 		# debug
 		print(current_dialog)
 		print(character_name)
@@ -149,20 +135,6 @@ func action_pressed() -> void :
 	
 	if Global.is_ui_hidden :
 		Global.is_ui_hidden = false
-
-#########################################################	
-func option_button_pressed() -> void:
-	var option_page = OPTION_PAGE.instantiate()
-	Transition.change_scene_child(option_page,self)
-	
-func load_button_pressed() -> void:
-	var load_table = LOAD_TABLE.instantiate()
-	Transition.change_scene_child(load_table,self)
-	
-func save_button_pressed() -> void:
-	var save_table = SAVE_TABLE.instantiate()
-	Transition.change_scene_child(save_table,self)
-#########################################################	
 
 # 如果接下来没有对话，就跳转到下一个场景
 # debug
@@ -182,9 +154,45 @@ func save_button_pressed() -> void:
 # release
 func turn_to_next_scene() -> void:
 	if next_scene :
-		var next_scnen_path : String = "res://Scenes/OrderedScenes/" + next_scene + ".tscn"
-		Global.target_json_file = "res://assets/FilmScripts/" + next_scene.split("s")[0] + "/" + next_scene + ".json"
+		var next_scnen_path : String = Global.get_scene_path(next_scene)
+		Global.target_json_file = Global.get_script_path(next_scene)
 		Transition.change_scene_path(next_scnen_path)
+		Global.next_scene_current_dialog = 0
 	else :
 		print("未能获取下一个场景的名称")
 		return
+
+# 从缓存中获取背景资源
+func get_background(background_path : String) :
+	var hash_value = background_path.hash()
+	if not cache.has(hash_value):
+		cache[hash_value] = load(background_path)
+	return cache[hash_value]
+	
+# 通过全局分组调用的游戏保存函数
+func game_save(slot_id : int) :
+	print("通过小组调用执行了 game_save 函数")
+	
+	var t := Time.get_datetime_dict_from_system()
+	var year  = 	str(t.year)          # 2025
+	var month = 	str(t.month)         # 8
+	var day   = 	str(t.day)           # 14
+	var hour  = 	str(t.hour)          # 15
+	var minute= 	str(t.minute)        # 42
+	var second= 	str(t.second)        # 7
+	var weekday= 	str(t.weekday)       # 4（Thursday）
+	
+	var Save = {}
+	
+	var save_id = Global.target_json_file.get_file().get_basename() + "-" + str(scene_info[current_dialog]["id"])
+	
+	Save["SaveId"] = save_id
+	Save["Slot"] = slot_id
+	Save["Date"] = year+"-"+month+"-"+day
+	Save["Time"] = hour+":"+minute+":"+second+" "+weekday
+	Save["Background"] = place
+	Save["Character"] = character_name
+	Save["DialogId"] = scene_info[current_dialog]["id"]
+	Save["DialogText"] = dialog_text
+	
+	SaveSystem.save_data[slot_id] = Save

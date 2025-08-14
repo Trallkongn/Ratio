@@ -1,0 +1,29 @@
+[
+	{
+		"next_scene": "c1-s5",
+		"sequence": "Chapter 1-4"
+	},
+	[
+		{
+			"bg": "hospital",
+			"character": "天空",
+			"emotion": "normal",
+			"id": 1,
+			"text": "我这是在哪里?"
+		},
+		{
+			"bg": "hospital",
+			"character": "天空",
+			"emotion": "normal",
+			"id": 2,
+			"text": "这里是医院吗？"
+		},
+		{
+			"bg": "hospital",
+			"character": "空美",
+			"emotion": "worried",
+			"id": 3,
+			"text": "你终于醒了！！！"
+		}
+	]
+]

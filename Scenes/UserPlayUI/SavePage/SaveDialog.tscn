@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://uta8sd7n6a7b"]
+
+[ext_resource type="Script" uid="uid://brqap7ckbfbwx" path="res://Scenes/UserPlayUI/SavePage/save_dialog.gd" id="1_tuaw1"]
+
+[node name="SaveDialog" type="CanvasLayer" groups=["Persist"]]
+script = ExtResource("1_tuaw1")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+color = Color(0.445898, 0.24126, 0.380283, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "确定保存游戏到当前插槽吗？"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="confirm" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "    确定    "
+
+[node name="cancel" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "    取消    "
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/cancel" to="." method="_on_cancel_pressed"]

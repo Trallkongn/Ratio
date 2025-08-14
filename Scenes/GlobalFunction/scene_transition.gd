@@ -8,12 +8,11 @@ func change_scene_packed(node: PackedScene) -> void:
 		get_tree().change_scene_to_packed(node)
 		$AnimationPlayer.play("fade_out")
 	
-func change_scene_node(node: Variant, ref : Variant) -> void:
-	if node && ref:
+func change_scene_node(node: Variant) -> void:
+	if node :
 		$AnimationPlayer.play("fade_in")
 		await $AnimationPlayer.animation_finished
 		get_tree().root.add_child(node)
-		ref.queue_free()
 		$AnimationPlayer.play("fade_out")
 	
 func change_scene_path(path: String) -> void:

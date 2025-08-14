@@ -1,0 +1,43 @@
+[
+	{
+		"next_scene": "c1-s4",
+		"sequence": "Chapter 1-3"
+	},
+	[
+		{
+			"bg": "kitchen",
+			"character": "空美",
+			"emotion": "smile",
+			"id": 1,
+			"text": "你还好吗？"
+		},
+		{
+			"bg": "kitchen",
+			"character": "空美",
+			"emotion": "smile",
+			"id": 2,
+			"text": "喂"
+		},
+		{
+			"bg": "kitchen",
+			"character": "空美",
+			"emotion": "smile",
+			"id": 3,
+			"text": "快醒醒!!!"
+		},
+		{
+			"bg": "kitchen",
+			"character": "空美",
+			"emotion": "smile",
+			"id": 4,
+			"text": "你怎么了？"
+		},
+		{
+			"bg": "kitchen",
+			"character": "空美",
+			"emotion": "smile",
+			"id": 5,
+			"text": "我现在就去打120"
+		}
+	]
+]

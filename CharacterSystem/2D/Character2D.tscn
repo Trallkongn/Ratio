@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://d10g1h16cp0yw"]
+
+[ext_resource type="Script" uid="uid://d2rp6427bwxd3" path="res://CharacterSystem/2D/Character2D.gd" id="1_oo0us"]
+[ext_resource type="Shader" uid="uid://dm1m86ca5lppf" path="res://assets/Shaders/Character2D.gdshader" id="2_oo0us"]
+[ext_resource type="Texture2D" uid="uid://b5emm4mi2bseq" path="res://assets/Pictures/characters/空美/kitchen/smile.png" id="2_xqgj2"]
+[ext_resource type="Texture2D" uid="uid://mp0pmpfur8g4" path="res://assets/Pictures/characters/空美/kitchen/normal.png" id="3_d2rf1"]
+[ext_resource type="Texture2D" uid="uid://b61o55h1v454p" path="res://assets/Pictures/characters/天空/airport/normal.png" id="3_rmg28"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p5f70"]
+shader = ExtResource("2_oo0us")
+shader_parameter/tex_from = ExtResource("3_d2rf1")
+shader_parameter/tex_to = ExtResource("2_xqgj2")
+shader_parameter/progress = 0.0
+
+[node name="Tiankong" type="Node2D"]
+script = ExtResource("1_oo0us")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_p5f70")
+position = Vector2(0, -432)
+texture = ExtResource("3_rmg28")
+region_rect = Rect2(0, 0, 400, 844)

@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvxlrod4fhsy"]
+
+[ext_resource type="Texture2D" uid="uid://dur7e42gamfxf" path="res://assets/Pictures/elements/存档.png" id="1_dnnh7"]
+[ext_resource type="Script" uid="uid://ngqjiwp8hdfl" path="res://Scenes/UserPlayUI/SavePage/save_table.gd" id="1_mgy1e"]
+
+[node name="SaveTable" type="Control" groups=["Persist"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mgy1e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.129412, 0.14902, 0.180392, 1)
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 192.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 48.0
+offset_right = 144.0
+offset_bottom = 128.0
+texture = ExtResource("1_dnnh7")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 56.0
+offset_right = 384.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 49
+text = "保存游戏"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 72.0
+offset_right = 1856.0
+offset_bottom = 1024.0
+columns = 3
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 880.0
+offset_right = 432.0
+offset_bottom = 960.0
+theme_override_font_sizes/font_size = 31
+text = "返回"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

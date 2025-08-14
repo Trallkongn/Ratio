@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://hphvfojmffjr"]
+
+[ext_resource type="PackedScene" uid="uid://7pd1nv86jpho" path="res://Scenes/Dialog/DialogPage.tscn" id="1_j1tw2"]
+
+[node name="C1s4" type="Node"]
+
+[node name="DialogPage" parent="." instance=ExtResource("1_j1tw2")]

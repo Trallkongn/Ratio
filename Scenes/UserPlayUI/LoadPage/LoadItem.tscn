@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb2aliqkg82p8"]
+
+[ext_resource type="Script" uid="uid://nt2ybjbup4x7" path="res://Scenes/UserPlayUI/LoadPage/load_item.gd" id="1_ybb72"]
+
+[sub_resource type="Theme" id="Theme_5mmms"]
+default_font_size = 11
+
+[node name="LoadItem" type="Control"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ybb72")
+
+[node name="Snipaste" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(400, 225)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 225.0
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 225.0
+offset_right = 400.0
+offset_bottom = 300.0
+color = Color(0.736171, 0.384601, 0.275267, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 75)
+layout_mode = 0
+offset_top = 225.0
+offset_right = 400.0
+offset_bottom = 301.0
+theme = SubResource("Theme_5mmms")
+
+[node name="date" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="key" type="Label" parent="VBoxContainer/date"]
+layout_mode = 2
+text = "日期："
+
+[node name="value" type="Label" parent="VBoxContainer/date"]
+layout_mode = 2
+text = "xxxx-xx-xx"
+
+[node name="time" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="key" type="Label" parent="VBoxContainer/time"]
+layout_mode = 2
+text = "时间："
+
+[node name="value" type="Label" parent="VBoxContainer/time"]
+layout_mode = 2
+text = "xx:xx"
+
+[node name="character" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="key" type="Label" parent="VBoxContainer/character"]
+layout_mode = 2
+text = "角色："
+
+[node name="value" type="Label" parent="VBoxContainer/character"]
+layout_mode = 2
+text = "xx"
+
+[node name="dialog" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="key" type="Label" parent="VBoxContainer/dialog"]
+layout_mode = 2
+text = "进度："
+
+[node name="value" type="Label" parent="VBoxContainer/dialog"]
+layout_mode = 2
+text = "xx-xx"
+
+[node name="NoSave" type="Label" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 250.0
+offset_right = 225.0
+offset_bottom = 273.0
+text = "无存档"
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
